@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="flex justify-between items-center">
+    <h2 class="font-semibold text-xl text-customBlue leading-tight rounded">
+        Notes
+    </h2>
+    <a  href="{{ url_for('create') }}"  class=" bg-green-600 py-1 px-3 text-white rounded shadow transition-all ">
+        New
+    </a>
+</div>
+    <!-- Search and Filter -->
+    <div class="py-4">
+        
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+           
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="flex justify-end p-4">
+                    <button class="bg-customBlue text-white py-2 px-4 rounded shadow">
+                        Generate Bulletin
+                    </button>
+                </div>
+                <div class="p-4 text-gray-900">
+                    <!-- Search Bar for Student Name -->
+                    <div class="overflow-auto">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-100 uppercase bg-customGray dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
+                                <tr class="text-nowrap">
+                                    <th class="px-3 py-2">
+                                        <TextInput
+                                            class="full-width"
+                                            placeholder="Student Name"
+                                            onBlur="searchFieldChange('name', event.target.value)"
+                                            onKeyPress="onKeyPress('name', event)"
+                                        />
+                                    </th>
+                                    <th class="px-3 py-2">
+                                        <!-- <Select
+                                            class="full-width"
+                                            onChange="searchFieldChange('exam', event.target.value)"
+                                        >
+                                            <option value="">Select Exam</option>
+                                            <option value="Final">Final</option>
+                                            <option value="Midterm">Midterm</option>
+                                        </Select> -->
+                                    </th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2"></th>
+                                    <th class="px-3 py-2 text-right"></th>
+                                </tr>
+                            </thead>
+                            <thead class="text-xs text-gray-700 uppercase bg-customGray2 dark:bg-customGray2 dark:text-gray-400 border-b-2 border-gray-500">
+                                <tr class="text-nowrap">
+                                    <th class="px-3 py-2">ID</th>
+                                    <th class="px-3 py-2">Student Name</th>
+                                    <th class="px-3 py-2">Module</th>
+                                    <th class="px-3 py-2">Subject</th>
+                                    <th class="px-3 py-2">Exam</th>
+                                    <th class="px-3 py-2">TP</th>
+                                    <th class="px-3 py-2">Control</th>
+                                    <th class="px-3 py-2">Absence</th>
+                                    <th class="px-3 py-2">Final Note</th>
+                                    <th class="px-3 py-2">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Example Data (This should be dynamically generated) -->
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-3 py-2">1</td>
+                                    <td class="px-3 py-2">John Doe</td>
+                                    <td class="px-3 py-2">Structre de donnes</td>
+                                    <td class="px-3 py-2">C++</td>
+                                    <td class="px-3 py-2">13</td>
+                                    <td class="px-3 py-2">15</td>
+                                    <td class="px-3 py-2">14</td>
+                                    <td class="px-3 py-2">presant</td>
+                                    <td class="px-3 py-2">13.5</td>
+                                    <td class="px-3 py-2 text-nowrap">
+                                        
+                                        <a href="/edit-student/1" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">Edit</a>
+                                        <button onClick="deleteStudent(1)" class="font-medium text-red-600 dark:text-red-500 hover:underline mx-1">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-3 py-2">2</td>
+                                    <td class="px-3 py-2">Jane Smith</td>
+                                    <td class="px-3 py-2">Structre de donnes</td>
+                                    <td class="px-3 py-2">Java</td>
+                                    <td class="px-3 py-2">15</td>
+                                    <td class="px-3 py-2">18</td>
+                                    <td class="px-3 py-2">17</td>
+                                    <td class="px-3 py-2">absent</td>
+                                    <td class="px-3 py-2">17.5</td>
+                                    <td class="px-3 py-2 text-nowrap">
+                                        <a href="/edit-student/2" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1">Edit</a>
+                                        <button onClick="deleteStudent(2)" class="font-medium text-red-600 dark:text-red-500 hover:underline mx-1">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination (Dynamic Links) -->
+                    <div class="mt-4">
+                        <Pagination links="{{ pagination_links }}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

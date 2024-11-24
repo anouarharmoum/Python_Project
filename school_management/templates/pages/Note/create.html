@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900">
+              
+                <form
+                    action="{{ url_for('create') }}"
+                    method="POST"
+                    class="p-4 sm:p-4 bg-white shadow-sm rounded-lg"
+                >
+                    <!-- Student Name -->
+                    <div class="mt-6">
+                        <label for="student_id" class="block text-sm font-medium text-gray-700">
+                            Student id
+                        </label>
+                        <input
+                            type="text"
+                            id="student_id"
+                            name="student_id"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            required
+                        />
+                    </div>
+                    <!-- Exam Note -->
+                    <div class="mt-6">
+                        <label for="exam" class="block text-sm font-medium text-gray-700">
+                            Exam Note
+                        </label>
+                        <input
+                            type="number"
+                            id="exam"
+                            name="exam"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- Exam Percentage -->
+                    <div class="mt-6">
+                        <label for="exam" class="block text-sm font-medium text-gray-700">
+                            Exam (%)
+                        </label>
+                        <input
+                            type="number"
+                            id="exam"
+                            name="exam"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- TP Note -->
+                    <div class="mt-6">
+                        <label for="tp" class="block text-sm font-medium text-gray-700">
+                            TP Note
+                        </label>
+                        <input
+                            type="number"
+                            id="tp"
+                            name="tp"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- TP Percentage -->
+                    <div class="mt-6">
+                        <label for="tp" class="block text-sm font-medium text-gray-700">
+                            TP (%)
+                        </label>
+                        <input
+                            type="number"
+                            id="tp"
+                            name="tp"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- Control Note -->
+                    <div class="mt-6">
+                        <label for="control" class="block text-sm font-medium text-gray-700">
+                            Control Note
+                        </label>
+                        <input
+                            type="number"
+                            id="control"
+                            name="control"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- Control Percentage -->
+                    <div class="mt-6">
+                        <label for="control" class="block text-sm font-medium text-gray-700">
+                            Control (%)
+                        </label>
+                        <input
+                            type="number"
+                            id="control"
+                            name="control"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            min="0"
+                            max="100"
+                            required
+                        />
+                    </div>
+                    <!-- Absence -->
+                    <div class="mt-6">
+                        <label for="presence" class="block text-sm font-medium text-gray-700">
+                            Presence
+                        </label>
+                        <select
+                            id="absence"
+                            name="absence"
+                            class="mt-2 block w-full border-2 border-gray-700 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-lg py-3 px-4"
+                            required
+                        >
+                            <option value="">Present</option>
+                            <option value="ENC">Absent</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="mt-8 text-right">
+                        <a
+                            href="{{ url_for('notes') }}"
+                            class="bg-gray-700 py-1 px-3 text-gray-100 rounded shadow transition-all hover:bg-gray-900 mr-4 text-lg"
+                        >
+                            Cancel
+                        </a>
+                        <button
+                            type="submit"
+                            class="bg-blue-700 py-1 px-3 text-gray-100 rounded shadow transition-all hover:bg-blue-900 text-lg"
+                        >
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

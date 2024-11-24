@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-xl font-bold text-customBlue">
+                        Student Management
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden sm:flex space-x-8">
+                    <a  class="text-gray-600 hover:text-blue-500 font-medium">Dashboard</a>
+                    <a href="{{ url_for('students') }}" class="text-gray-600 hover:text-blue-500 font-medium">Students</a>
+                    <a href="{{ url_for('notes') }}" class="text-gray-600 hover:text-blue-500 font-medium">Notes</a>
+                    <a  class="text-gray-600 hover:text-blue-500 font-medium">Bulletin</a>
+                    <a  class="text-gray-600 hover:text-blue-500 font-medium">Emploie du Temps</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            {% block content %}
+            <!-- Dynamic content goes here -->
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-4 shadow-md">
+        <p class="text-sm text-gray-500">© 2024  <span class="font-bold text-customBlue">Student Management</span>. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
